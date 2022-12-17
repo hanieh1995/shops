@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'kaushan Script';
+}
+
+body {
+    font-size: 16px;
+}
+
+nav {
+    display: flex;
+    padding: 15px;
+}
+
+nav img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+nav .header {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .header .left {
+    color: palevioletred;
+    margin-left: 110px;
+    width: 100%;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+}
+
+nav .header .left .header-left-link {
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.9s;
+}
+
+nav .header .left .header-left-link:hover {
+    color: black;
+}
+
+nav .header .right {
+    width: 100%;
+    font-size: 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav .header .right div {
+    margin-right: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tel i {
+    transform: rotateY(180deg);
+    padding-top: 3px;
+}
+
+nav .header .right .cart {
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav .header .right i {
+    margin-right: 15px;
+    font-size: 1.3em;
+}
+
+nav .header .right .cart:hover {
+    background-color: palevioletred;
+    color: white;
+    border: 1px solid palevioletred;
+}
+
+.banner {
+    padding-top: 160px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 45px);
+    flex-direction: column;
+    background: linear-gradient(rgba(249, 228, 148, 0.5), rgba(249, 228, 148, 0.5)), url('./img/headerBcg.jpeg') center/cover fixed no-repeat;
+
+}
+
+.banner .welcome-text {
+    font-size: 2.3em;
+    color: white;
+    margin-bottom: 9px;
+}
+
+.banner span {
+    font-size: 1.7em;
+    color: palevioletred;
+    font-weight: bold;
+}
+
+.explore {
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 1.5em;
+    transition: 0.2s;
+    text-decoration: none;
+    color: black;
+}
+
+.explore:hover {
+    background-color: black;
+    color: palevioletred;
+    cursor: pointer;
+}
+
+.about-us {
+    display: flex;
+    justify-content: center;
+    padding: 90px
+}
+
+.about-us .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.about-us .left {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.about-us .left .header {
+    font-size: 2.2em;
+    padding-bottom: 15px;
+}
+
+.about-us .left span {
+    font-size: 1.7em;
+    color: palevioletred;
+}
+
+.about-us .left .content {
+    color: rgb(104, 101, 101);
+    padding-bottom: 25px;
+    padding-right: 90px;
+}
+
+.about-us .explore {
+    border: 1px solid black;
+    font-size: 1em;
+}
+
+.about-us .right div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.about-us .right div::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -25px;
+    width: 100%;
+    height: 100%;
+    outline: 8px solid rgb(255, 222, 160);
+    z-index: -1;
+    transition: all 1s ease-in-out;
+}
+
+.about-us .right div:hover::before {
+    top: 0px;
+    left: 0px;
+}
+
+.about-us .right img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+main {
+    width: 100%;
+    background-color: rgb(238, 238, 238);
+}
+
+main .header {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 1.9em;
+    padding-top: 40px;
+}
+
+main span {
+    font-size: 1.5em;
+    color: palevioletred;
+    font-weight: bold;
+}
+
+main .filters {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+main .filters .filter {
+    border: 1px solid black;
+    margin-right: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 6px 8px;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+main .filters .filter:hover {
+    background-color: black;
+    color: palevioletred;
+}
+
+main .input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+main .input-container i {
+    height: 40px;
+    width: 40px;
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+main .input-container input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 450px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    padding-left: 15px;
+    font-size: 1.2em;
+}
+
+main .input-container input:focus {
+    box-shadow: 0 0 3px 3px rgba(84, 179, 223, 0.63);
+}
+
+main section .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 100px;
+    gap: 25px;
+}
+
+main section .grid-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+main section .grid-item .img {
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+main section .grid-item .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    font-size: 1.2em;
+    z-index: 2;
+}
+
+main section .grid-item i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 50px;
+    background-color: rgb(248, 240, 168);
+    border-top-left-radius: 15px;
+    position: absolute;
+    bottom: 0px;
+    right: -68px;
+    z-index: 1;
+    font-size: 1.1em;
+    transition: 1s ease-in-out;
+}
+main section .grid-item .img:hover + i{
+    bottom: 68px;
+    right: 0px;
+}
+
+main section .grid-item .img:hover{
+transform: scale(120%);
+}

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: lalezar;
+    src: url(../font/Lalezar.ttf);
+}
+
+*{
+direction: rtl;
+font-family: lalezar;
+box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+}
