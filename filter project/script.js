@@ -1,7 +1,10 @@
 let filters = document.querySelectorAll(".filter");
 let input = document.querySelector(".input");
 let cardsContainer = document.querySelector(".cards-container");
-
+let modalIcons = document.querySelectorAll(".modal i");
+let modalImage = document.querySelector(".modal img");
+let modalContainer = document.querySelector(".modal-container");
+let navBarIcon = document.querySelector(".icons-nav i");
 
 let data = [
     { image: "./img/cake-1.jpeg", title: "Cake Item", price: "$10", type: "cake" },
@@ -54,7 +57,6 @@ class Card {
     }
 }
 
-
 data.forEach(e => {
     let card = new Card(e.image, e.title, e.price, e.type);
     card.creatcard();
@@ -71,16 +73,16 @@ filters.forEach(filter => {
             cards.forEach(card => {
                 card.style.display = "flex";
             })
-        } 
-        filtering("doughnut",filter);
-        filtering("sweet",filter);
-        filtering("cupcake",filter);
-        filtering("cake",filter);
+        }
+        filtering("doughnut", filter);
+        filtering("sweet", filter);
+        filtering("cupcake", filter);
+        filtering("cake", filter);
     })
 })
 
-function filtering(type,filter){
-     if (filter.classList.contains(type)) {
+function filtering(type, filter) {
+    if (filter.classList.contains(type)) {
         cards.forEach(card => {
             if (!card.classList.contains(type)) {
                 card.style.display = "none"
@@ -98,4 +100,45 @@ input.addEventListener("input", e => {
         }
 
     })
+})
+
+let images = document.querySelectorAll(".img");
+let imagesArray = Array.from(images);
+
+images.forEach(image => {
+    image.addEventListener("click", () => {
+        modalImage.src = image.src;
+        modalContainer.style.display = "flex";
+
+    })
+})
+
+window.addEventListener("click", (e) => {
+    if (e.target == modalContainer) {
+        modalContainer.style.display = "none";
+    }
+})
+
+modalIcons.forEach(icon => {
+    icon.addEventListener("click", (e) => {
+        let index = imagesArray.findIndex(image => 
+            image.src == modalImage.src
+        )
+        if (e.target.id == "close-icon") {
+            modalContainer.style.display = "none"
+        } else if (e.target.id == "pre-btn") {
+            index = index == 0 ? imagesArray.length - 1 : index;
+            index--;
+            modalImage.src = imagesArray[index].src
+        } else if (e.target.id == "next-btn") {
+            index = index == imagesArray.length - 1 ? 0 : index;
+            index++;
+            modalImage.src = imagesArray[index].src
+        }
+    })
+})
+
+
+navBarIcon.addEventListener("click" , ()=>{
+    document.querySelector("nav").classList.toggle("show-nav");
 })
