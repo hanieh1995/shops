@@ -12,6 +12,18 @@
 </head>
 
 <body>
+    <div class="total-cart">
+        <ul class="purchases">
+        </ul>
+        <div class="total-price">
+            <span>Total</span>
+          <span> $ <span class="price"></span></span>
+        </div>
+        <div class="btns">
+            <div class="clear-cart">CLEAR CART</div>
+            <div class="checkout">CHECKOUT</div>
+        </div>
+    </div>
     <nav>
         <div class="icons-nav">
         <img src="./img/logo.svg" alt="" class="icon-doughnut">
@@ -28,9 +40,9 @@
                     <i class="fa fa-phone"></i>
                     <span>+ 123 456 789</span>
                 </div>
-                <div class="cart">
+                <div class="cart" onclick="showTotalPurchases()">
                     <i class="fa fa-shopping-cart"></i>
-                    <span>2 Items - $10.49</span>
+                    <span><span class="totalItemsNumber" ></span> Items - $ <span class="totalPriceNav" ></span></span>
                 </div>
             </div>
         </div>
