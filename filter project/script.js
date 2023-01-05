@@ -10,6 +10,9 @@ let purchaseList = document.querySelector(".purchases");
 let totalItemsNumber = document.querySelector(".totalItemsNumber");
 let totalPriceNav = document.querySelector(".totalPriceNav");
 let totalPrice = document.querySelector(".price");
+
+let cartItemPurchaseList =
+  JSON.parse(localStorage.getItem("cartItemPurchaseList")) || [];
 let totalCartPrice = [];
 
 let data = [
@@ -233,15 +236,33 @@ cardsContainer.addEventListener("click", (e) => {
     let purchaseInfo = data.find(
       (element) => element.code == e.target.parentNode.getAttribute("code")
     );
-    purchaseList.appendChild(createPurchaseItem(purchaseInfo));
-    totalCartPrice.push(purchaseInfo.price.substring(1) * 1);
-    totalItemsNumber.innerText = totalCartPrice.length;
-    totalPriceNav.innerText = totalPrice.innerText = totalCartPrice.reduce(
-      (a, b) => a + b,
-      0
+    cartItemPurchaseList.push(purchaseInfo);
+    localStorage.setItem(
+      "cartItemPurchaseList",
+      JSON.stringify(cartItemPurchaseList)
     );
+
+    creatCartItemPurchaseList(cartItemPurchaseList);
   }
 });
+
+if (cartItemPurchaseList.length != 0) {
+  creatCartItemPurchaseList(cartItemPurchaseList);
+}
+
+function creatCartItemPurchaseList(cartItemPurchaseList) {
+  purchaseList.innerHTML = "";
+  totalCartPrice = [];
+  cartItemPurchaseList.forEach((element) => {
+    purchaseList.appendChild(createPurchaseItem(element));
+    totalCartPrice.push(element.price.substring(1) * 1);
+  });
+  totalItemsNumber.innerText = totalCartPrice.length;
+  totalPriceNav.innerText = totalPrice.innerText = totalCartPrice.reduce(
+    (a, b) => a + b,
+    0
+  );
+}
 
 if (totalPriceNav.innerText == "") {
   totalPriceNav.innerText = totalPrice.innerText = 0;
@@ -253,12 +274,18 @@ purchaseList.addEventListener("click", (e) => {
     let index = Array.from(purchaseList.children).findIndex(
       (element) => element == e.target.parentNode
     );
+    cartItemPurchaseList.splice(index, 1);
+    localStorage.setItem(
+      "cartItemPurchaseList",
+      JSON.stringify(cartItemPurchaseList)
+    );
     totalCartPrice.splice(index, 1);
     totalItemsNumber.innerText = totalCartPrice.length;
     totalPriceNav.innerText = totalPrice.innerText = totalCartPrice.reduce(
       (a, b) => a + b,
       0
     );
+    e.target.parentNode.remove();
   }
 });
 
